@@ -1,3 +1,4 @@
+from constants import *
 from entity import Entity
 import pygame as pg
 
@@ -12,14 +13,15 @@ class HealthBar:
     def draw(self, surface):
         filling = self.calculate_fill()
         px, py = self.parent_entity.rect.topleft
-        rect = pg.rect.Rect(px, py - 20, filling, 5)
-        color = self.__get_color_from_percent(self.parent_entity.hp)
-        pg.draw.rect(surface, color, rect)
+        rect = pg.rect.Rect(px, py - 20, 100, 5)
+        filling_rect = pg.rect.Rect(px, py - 20, filling, 5)
+        color = self.__get_color_from_percent(filling)
+        pg.draw.rect(surface, WHITE, rect)
+        pg.draw.rect(surface, color, filling_rect)
 
     def calculate_fill(self):
-        parent = self.parent_entity
-        percent = parent.max_hp // 100 * parent.hp
-        return self.length // 100 * percent
+        percent = 100 * self.parent_entity.hp // self.parent_entity.max_hp
+        return 100 * percent // self.length
 
 
     @staticmethod
