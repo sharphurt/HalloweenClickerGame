@@ -23,7 +23,6 @@ class HealthBar:
         percent = 100 * self.parent_entity.hp // self.parent_entity.max_hp
         return 100 * percent // self.length
 
-
     @staticmethod
     def __get_color_from_percent(percent):
         if percent > 50:

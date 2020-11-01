@@ -1,5 +1,4 @@
 import pygame as pg
-from constants import *
 
 
 class Sprite:
@@ -13,7 +12,6 @@ class Sprite:
                 'scale': 3,
                 'coords': [(39, 21), (78, 21), (116, 21), (153, 21), (191, 21), (231, 21)],
             },
-
         'player_run':
             {
                 'path': 'assets/sprites/player_sprite.png',
@@ -23,7 +21,6 @@ class Sprite:
                 'scale': 3,
                 'coords': [(282, 21), (319, 21), (355, 21), (392, 21), (433, 21), (470, 21), (510, 21), (550, 21)],
             },
-
         'ghost_fly':
             {
                 'path': 'assets/sprites/ghost_sprite.png',
@@ -33,6 +30,51 @@ class Sprite:
                 'scale': 3,
                 'coords': [(0, 0), (32, 0), (64, 0), (96, 0)],
             },
+        'pumpkin_1':
+            {
+                'path': 'assets/sprites/pumpkin/1.png',
+                'width': 64,
+                'height': 64,
+                'speed': 1,
+                'scale': 1,
+                'coords': [(0, 0)]
+            },
+        'pumpkin_2':
+            {
+                'path': 'assets/sprites/pumpkin/2.png',
+                'width': 64,
+                'height': 64,
+                'speed': 1,
+                'scale': 1,
+                'coords': [(0, 0)]
+            },
+        'pumpkin_3':
+            {
+                'path': 'assets/sprites/pumpkin/3.png',
+                'width': 64,
+                'height': 64,
+                'speed': 1,
+                'scale': 1,
+                'coords': [(0, 0)]
+            },
+        'pumpkin_4':
+            {
+                'path': 'assets/sprites/pumpkin/4.png',
+                'width': 64,
+                'height': 64,
+                'speed': 1,
+                'scale': 1,
+                'coords': [(0, 0)]
+            },
+        'pumpkin_5':
+            {
+                'path': 'assets/sprites/pumpkin/5.png',
+                'width': 64,
+                'height': 64,
+                'speed': 1,
+                'scale': 1,
+                'coords': [(0, 0)]
+            }
     }
 
     def __init__(self, sprite_info):
@@ -46,6 +88,12 @@ class Sprite:
         self.sprite_index = 0
         self.frames_counter = 0
         self.__flipped = False
+
+    # def load_sprites(self):
+    #     for sprite in Sprite.sprite_table.items():
+    #         name, data = sprite
+    #         self.sprites[name] = Sprite(data)
+
 
     def get_sprite_from_image(self, sprite_coords):
         x, y = sprite_coords
