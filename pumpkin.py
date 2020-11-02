@@ -1,9 +1,9 @@
 from constants import HEIGHT
-from entity import Entity
+from entity.entity import Entity
 
 
 class Pumpkin(Entity):
-    def __init__(self, position, sprite_key='pumpkin_1'):
+    def __init__(self, position, sprite_key='pumpkin'):
         super(Pumpkin, self).__init__(position, sprite_key, name='pumpkin', hp=5, max_hp=5)
         self.position = position
         self.breaking_level = 0

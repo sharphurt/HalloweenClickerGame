@@ -1,7 +1,5 @@
-import pygame as pg
-
-from healthbar import HealthBar
-from entity import Entity
+from entity.healthbar import HealthBar
+from entity.entity import Entity
 
 
 class Ghost(Entity):

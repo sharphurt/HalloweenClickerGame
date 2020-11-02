@@ -3,7 +3,7 @@ from sprite import load_sprites
 
 
 class Entity(pg.sprite.Sprite):
-    def __init__(self, position, sprite_key, name='enemy', hp=100, max_hp=100):
+    def __init__(self, position, sprite_key, name='entity', hp=100, max_hp=100):
         super(Entity, self).__init__()
         self.sprites = load_sprites()
         self.sprite = self.sprites[sprite_key]

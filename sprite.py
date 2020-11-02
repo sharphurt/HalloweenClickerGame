@@ -38,13 +38,22 @@ class Sprite:
                 'scale': 3,
                 'coords': [(0, 0), (32, 0), (64, 0), (96, 0)],
             },
-        'pumpkin_1':
+        'pumpkin':
             {
                 'path': 'assets/sprites/pumpkin/1.png',
                 'width': 64,
                 'height': 64,
                 'speed': 1,
                 'scale': 1,
+                'coords': [(0, 0)]
+            },
+        'heart':
+            {
+                'path': 'assets/sprites/heart.png',
+                'width': 64,
+                'height': 64,
+                'speed': 1,
+                'scale': 0.7,
                 'coords': [(0, 0)]
             }
     }
@@ -64,7 +73,7 @@ class Sprite:
     def get_sprite_from_image(self, sprite_coords):
         x, y = sprite_coords
         frame = self.sprite_sheet.subsurface(x, y, self.width, self.height)
-        frame = pg.transform.scale(frame, (self.width * self.scale, self.height * self.scale))
+        frame = pg.transform.scale(frame, (int(self.width * self.scale), int(self.height * self.scale)))
         if self.__flipped:
             frame = pg.transform.flip(frame, self.__flipped, False)
         return frame

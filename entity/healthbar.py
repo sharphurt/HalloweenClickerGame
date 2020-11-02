@@ -1,5 +1,5 @@
 from constants import *
-from entity import Entity
+from entity.entity import Entity
 import pygame as pg
 
 

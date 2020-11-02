@@ -1,5 +1,5 @@
-from healthbar import HealthBar
-from entity import Entity
+from entity.healthbar import HealthBar
+from entity.entity import Entity
 
 
 class Player(Entity):
@@ -11,3 +11,7 @@ class Player(Entity):
         surface.blit(self.sprite.get_current_frame(), self.rect)
         self.healthbar.draw(surface)
 
+    def heal(self, hp):
+        self.hp += hp
+        if self.hp > self.max_hp:
+            self.hp = self.max_hp
