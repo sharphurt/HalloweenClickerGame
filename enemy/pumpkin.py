@@ -1,18 +1,18 @@
+from constants import HEIGHT
 from entity import Entity
 
 
 class Pumpkin(Entity):
     def __init__(self, position, sprite_key='pumpkin_1'):
         super(Pumpkin, self).__init__(position, sprite_key, name='pumpkin', hp=5, max_hp=5)
+        self.position = position
         self.breaking_level = 0
 
     def draw(self, surface):
         surface.blit(self.sprite.get_current_frame(), self.rect)
 
-    def damage(self, damage_count):
-        self.breaking_level += 1
-        if self.breaking_level > 4:
-            self.hp = 0
-            self.alive = False
-        else:
-            self.sprite = self.sprites[f'pumpkin_{self.breaking_level + 1}']
+    def update(self, dest=None, offset=None, sprite=None):
+        super(Pumpkin, self).update(dest, offset, sprite)
+        _, y = self.position
+        if y >= HEIGHT - 100:
+            self.kill()

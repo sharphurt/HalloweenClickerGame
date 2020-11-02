@@ -1,6 +1,14 @@
 import pygame as pg
 
 
+def load_sprites():
+    sprites = {}
+    for sprite in Sprite.sprite_table.items():
+        name, data = sprite
+        sprites[name] = Sprite(data)
+    return sprites
+
+
 class Sprite:
     sprite_table = {
         'player_stand':
@@ -38,42 +46,6 @@ class Sprite:
                 'speed': 1,
                 'scale': 1,
                 'coords': [(0, 0)]
-            },
-        'pumpkin_2':
-            {
-                'path': 'assets/sprites/pumpkin/2.png',
-                'width': 64,
-                'height': 64,
-                'speed': 1,
-                'scale': 1,
-                'coords': [(0, 0)]
-            },
-        'pumpkin_3':
-            {
-                'path': 'assets/sprites/pumpkin/3.png',
-                'width': 64,
-                'height': 64,
-                'speed': 1,
-                'scale': 1,
-                'coords': [(0, 0)]
-            },
-        'pumpkin_4':
-            {
-                'path': 'assets/sprites/pumpkin/4.png',
-                'width': 64,
-                'height': 64,
-                'speed': 1,
-                'scale': 1,
-                'coords': [(0, 0)]
-            },
-        'pumpkin_5':
-            {
-                'path': 'assets/sprites/pumpkin/5.png',
-                'width': 64,
-                'height': 64,
-                'speed': 1,
-                'scale': 1,
-                'coords': [(0, 0)]
             }
     }
 
@@ -88,12 +60,6 @@ class Sprite:
         self.sprite_index = 0
         self.frames_counter = 0
         self.__flipped = False
-
-    # def load_sprites(self):
-    #     for sprite in Sprite.sprite_table.items():
-    #         name, data = sprite
-    #         self.sprites[name] = Sprite(data)
-
 
     def get_sprite_from_image(self, sprite_coords):
         x, y = sprite_coords

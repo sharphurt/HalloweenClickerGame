@@ -8,9 +8,10 @@ class Display:
         self.screen = pg.display.set_mode(self.RES)
         self.bg = pg.transform.scale(background, self.RES)
 
-    def draw(self, *args):
+    def draw(self, text, pos,  *args):
         self.screen.blit(self.bg, (0, 0))
         # self.screen.fill(BLACK)
         for arg in args:
             arg.draw(self.screen)
+        self.screen.blit(text, pos)
         pg.display.flip()

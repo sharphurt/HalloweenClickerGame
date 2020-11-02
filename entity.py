@@ -1,21 +1,11 @@
 import pygame as pg
-from sprite import Sprite
+from sprite import load_sprites
 
 
 class Entity(pg.sprite.Sprite):
-
     def __init__(self, position, sprite_key, name='enemy', hp=100, max_hp=100):
-        self.sprites = {
-            'player_stand': Sprite(Sprite.sprite_table['player_stand']),
-            'player_run': Sprite(Sprite.sprite_table['player_run']),
-            'ghost_fly': Sprite(Sprite.sprite_table['ghost_fly']),
-            'pumpkin_1': Sprite(Sprite.sprite_table['pumpkin_1']),
-            'pumpkin_2': Sprite(Sprite.sprite_table['pumpkin_2']),
-            'pumpkin_3': Sprite(Sprite.sprite_table['pumpkin_3']),
-            'pumpkin_4': Sprite(Sprite.sprite_table['pumpkin_4']),
-            'pumpkin_5': Sprite(Sprite.sprite_table['pumpkin_5'])
-        }
         super(Entity, self).__init__()
+        self.sprites = load_sprites()
         self.sprite = self.sprites[sprite_key]
         self.rect = pg.rect.Rect(
             position,
@@ -63,3 +53,6 @@ class Entity(pg.sprite.Sprite):
             self._move_steps(dir_vector, steps)
         if sprite is not None:
             self.sprite = sprite
+
+    def kill(self):
+        self.alive = False
